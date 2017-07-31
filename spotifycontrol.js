@@ -13,7 +13,7 @@ const CHANGESCENELABEL = "sceneCounter";
 
 //https://open.spotify.com/token
 var spotify = new SpotifyControl({
-    token: "NAowChgKB1Nwb3RpZnkSABoGmAEByAEBJepzfVkSFKpnL8yqI2nY4S0YPVlXmh2Cm6kl"
+    token: "NAowChgKB1Nwb3RpZnkSABoGmAEByAEBJa-WflkSFAX6MM1Z60JCwkNXdDeJLP_nhkch"
 });
 
 var playlistsbyroom = {};
@@ -24,8 +24,10 @@ playlistsbyroom['gallery'] = "7h7g374FlkSW2x4cxIqyvA";
 playlistsbyroom['rooftop'] = "7AsuP1UVERBKUkNjl3CZ0Y";
 playlistsbyroom['projection'] = "6fhdszY4mFuKHqZA1JmTW3";
 playlistsbyroom['or'] = "4x9kd1ZvbB9S2GjZN2o4Ye";
+playlistsbyroom['vaporware'] = "0xPkzIXXbdkD0CDlFTZCcq";
 
 //  'gallery',
+//0xPkzIXXbdkD0CDlFTZCcq vaporware
 
 //this is the order of the playlist
 var playlists = [
@@ -38,7 +40,9 @@ var playlists = [
   'rooftop',
   'projection',
   'gifroom',
-  'artroom'
+  'artroom',
+  'vaporware',
+  'gallery'
 ]
 
 var currentListID = "";
@@ -85,7 +89,6 @@ function playRandomTrack(tracks) {
   }, err => {
         console.error("Failed to start: " + err.message);
   })
-
 }
 
 function changePlaylist(playlistindex) {
@@ -103,15 +106,48 @@ function chanePlaylistOffline(playlistindex) {
   jsonfile.readFile(filename, function(err, obj) {
       playRandomTrack(obj);
   })
-
 }
+
+// setTimeout( function() {
+//     changePlaylist(10);
+// },
+// 3000);
+//
+// setTimeout( function() {
+//     changePlaylist(11);
+// },
+// 10000);
+//
+// setTimeout( function() {
+//     changePlaylist(12);
+// },
+// 20000);
+//
+// setTimeout( function() {
+//     changePlaylist(3);
+// },
+// 30000);
+//
+// setTimeout( function() {
+//     changePlaylist(4);
+// },
+// 40000);
+//
+// setTimeout( function() {
+//     changePlaylist(5);
+// },
+// 50000);
+//
+// setTimeout( function() {
+//     changePlaylist(6);
+// },
+// 60000);
 
 holojam.on('update', (flakes, scope, origin) => {
   flakes.forEach(function(flake){
 
     if(flake.label === CHANGESCENELABEL){
         //console.log("change scene");
-
         if(currentScene != flake.ints[0]) {
          console.log("change scene to " + flake.ints[0]);
           currentScene = flake.ints[0];
