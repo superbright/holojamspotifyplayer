@@ -10,5 +10,5 @@ token: "NAowChgKB1Nwb3RpZnkSABoGmAEByAEBJTh0jVkSFJhXo42-CyRtLbFotf08tHFgANle"
 1. npm install
 2. npm start
 ## Cache and offline mode
-When script starts, lets it run through 12 playlists. It will create json cache of tracks
-After caching is complete, you can keep running without internet.
+When script starts, let it run through 12 playlists. It will create json lists of tracks.
+After caching is complete, you can keep running without internet, no need to restart.
