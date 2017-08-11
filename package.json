@@ -1,0 +1,31 @@
+{
+  "name": "spotify_player",
+  "version": "0.1.0",
+  "description": "Spotify Player",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "spotify-control": "*",
+    "spotify-playlist" : "*",
+    "jsonfile" : "*",
+    "holojam-node" : "*"
+  },
+  "engines": {
+    "node": "7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/superbright/holojamspotifyplayer"
+  },
+  "keywords": [
+    "spotify",
+    "control"
+  ],
+  "author": "Igal Nassima",
+  "contributors": [
+    "Igal Nassima <igal@superbright.me> (http://superbright.me)"
+  ],
+  "license": "MIT"
+}

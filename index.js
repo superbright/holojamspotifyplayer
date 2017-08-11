@@ -4,8 +4,6 @@ var jsonfile = require('jsonfile')
 
 const holojam = require('holojam-node')(['sink']);
 
-const express = require('express')
-const app = express();
 
 //starting from scene -1
 var currentScene = -1;
@@ -13,7 +11,7 @@ const CHANGESCENELABEL = "sceneCounter";
 
 //https://open.spotify.com/token
 var spotify = new SpotifyControl({
-    token: "NAowChgKB1Nwb3RpZnkSABoGmAEByAEBJa-WflkSFAX6MM1Z60JCwkNXdDeJLP_nhkch"
+    token: "NAowChgKB1Nwb3RpZnkSABoGmAEByAEBJTh0jVkSFJhXo42-CyRtLbFotf08tHFgANle"
 });
 
 var playlistsbyroom = {};
@@ -108,40 +106,19 @@ function chanePlaylistOffline(playlistindex) {
   })
 }
 
-// setTimeout( function() {
-//     changePlaylist(10);
-// },
-// 3000);
-//
-// setTimeout( function() {
-//     changePlaylist(11);
-// },
-// 10000);
-//
-// setTimeout( function() {
-//     changePlaylist(12);
-// },
-// 20000);
-//
-// setTimeout( function() {
-//     changePlaylist(3);
-// },
-// 30000);
-//
-// setTimeout( function() {
-//     changePlaylist(4);
-// },
-// 40000);
-//
-// setTimeout( function() {
-//     changePlaylist(5);
-// },
-// 50000);
-//
-// setTimeout( function() {
-//     changePlaylist(6);
-// },
-// 60000);
+//ENABLE THIS TO CACHE LIST
+
+for(var i = 0; i < playlists.length; i++) {
+   var j = i;
+   (function(j) {
+     setTimeout(function() {
+       console.log('cache list:'+j)
+        changePlaylist(j);
+     }, j * 3000);
+
+  })(j);
+}
+
 
 holojam.on('update', (flakes, scope, origin) => {
   flakes.forEach(function(flake){
